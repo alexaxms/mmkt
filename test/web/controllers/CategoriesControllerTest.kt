@@ -1,19 +1,19 @@
-package com.alexaxms
+package com.alexaxms.application.controllers
 
+import com.alexaxms.module
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.withTestApplication
-import kotlin.test.Test
+import org.junit.Test
 import kotlin.test.assertEquals
 
-class ApplicationTest {
+class CategoriesControllerTest() {
     @Test
-    fun testRoot() {
+    fun testListCategories() {
         withTestApplication({ module(testing = true) }) {
-            handleRequest(HttpMethod.Get, "/").apply {
+            handleRequest(HttpMethod.Get, "/categories").apply {
                 assertEquals(HttpStatusCode.OK, response.status())
-                assertEquals("HELLO WORLD!", response.content)
             }
         }
     }

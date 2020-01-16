@@ -6,6 +6,10 @@ buildscript {
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
+
+    ext {
+        koin_version = '1.0.1'
+    }
 }
 
 apply plugin: 'kotlin'
@@ -39,5 +43,7 @@ dependencies {
     implementation "io.ktor:ktor-client-core:$ktor_version"
     implementation "io.ktor:ktor-client-core-jvm:$ktor_version"
     implementation "io.ktor:ktor-client-apache:$ktor_version"
+    implementation "org.koin:koin-ktor:$koin_version"
+    testImplementation "org.koin:koin-test:$koin_version"
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
 }
